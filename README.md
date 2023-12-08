@@ -13,7 +13,7 @@ helm repo add elastic https://helm.elastic.co
 2. Deploy elasticsearch
 
 ```
-helm install elasticsearch elastic/elasticsearch --version="7.15.0" -f ./elastic/values.yaml
+helm install elasticsearch elastic/elasticsearch --version="7.15.0" -f ./elasticsearch/values.yaml
 ```
 3. Deploy filebeat 
 
