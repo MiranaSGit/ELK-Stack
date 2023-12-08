@@ -40,3 +40,4 @@ kubectl port-forward svc/kibana-kibana 5601
 ```
 http://localhost:5601
 ```
+![Screenshot](https://github.com/MiranaSGit/ELK-Stack/blob/main/kibana.png)
