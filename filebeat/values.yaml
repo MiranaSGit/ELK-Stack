@@ -35,5 +35,3 @@ daemonset:
       memory: "200Mi"
 
   maxUnavailable:
-
-# helm install filebeat elastic/filebeat --version="7.15.0" -f values.yaml

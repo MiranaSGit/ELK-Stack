@@ -16,27 +16,6 @@ logstashPipeline:
         }
       }
 
-      # input {
-      #     beats {
-      #         port => "5044"
-      #     }
-      # }
-      # filter {
-      #     grok {
-      #         match => { "message" => "%{COMBINEDAPACHELOG}"}
-      #     }
-      # }
-      # output {
-      #     elasticsearch {
-      #         hosts => [ "https://localhost:9200" ]
-
-      #         ssl_certificate_verification => false
-
-      #         user => elastic
-
-      #         password => <mypassword>
-      #     }
-      # }
 persistence:
   enabled: true
   annotations: {}
@@ -57,5 +36,3 @@ service:
       port: 8080
       protocol: TCP
       targetPort: 8080
-
-# helm install logstash elastic/logstash --version="7.15.0" -f values.yaml

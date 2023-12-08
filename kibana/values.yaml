@@ -6,6 +6,10 @@ resources:
     cpu: "1"
     memory: "2Gi"
 
+#local ingress can be enabled if nginx ingress for docker-desktop is installed.
+# helm upgrade --install ingress-nginx ingress-nginx \
+  # --repo https://kubernetes.github.io/ingress-nginx \
+  # --namespace ingress-nginx --create-namespace
 ingress:
   enabled: false
   annotations:
@@ -19,5 +23,3 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
-
-# helm install kibana elastic/kibana --version="7.15.0" -f values.yaml

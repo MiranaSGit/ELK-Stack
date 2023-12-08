@@ -1,6 +1,6 @@
 replicas: 2
 
-# Permit co-located instances for solitary minikube virtual machines.
+# Permit co-located instances for kubernetes in docker-dektop.
 antiAffinity: "soft"
 
 # Shrink default JVM heap.
@@ -23,5 +23,3 @@ volumeClaimTemplate:
       storage: 1Gi
 
 maxUnavailable: 
-
-# helm install elasticsearch elastic/elasticsearch --version="7.15.0" -f values.yaml
