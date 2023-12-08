@@ -1,0 +1,61 @@
+logstashConfig:
+  logstash.yml: |
+    http.host: "0.0.0.0"
+    xpack.monitoring.elasticsearch.hosts: [ "http://elasticsearch-master:9200" ]
+
+logstashPipeline:
+  logstash.conf: |
+      input {
+        beats {
+            port => "5044"
+        }
+      }
+      output {
+        elasticsearch {
+            hosts => ["http://elasticsearch-master:9200"]
+        }
+      }
+
+      # input {
+      #     beats {
+      #         port => "5044"
+      #     }
+      # }
+      # filter {
+      #     grok {
+      #         match => { "message" => "%{COMBINEDAPACHELOG}"}
+      #     }
+      # }
+      # output {
+      #     elasticsearch {
+      #         hosts => [ "https://localhost:9200" ]
+
+      #         ssl_certificate_verification => false
+
+      #         user => elastic
+
+      #         password => <mypassword>
+      #     }
+      # }
+persistence:
+  enabled: true
+  annotations: {}
+
+antiAffinity: "soft"
+maxUnavailable:
+
+service:
+  annotations: {}
+  type: ClusterIP
+  loadBalancerIP: ""
+  ports:
+    - name: beats
+      port: 5044
+      protocol: TCP
+      targetPort: 5044
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+
+# helm install logstash elastic/logstash --version="7.15.0" -f values.yaml
