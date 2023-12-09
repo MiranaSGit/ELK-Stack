@@ -16,7 +16,7 @@ ingress:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: ckubernetes.docker.internal
+    - host: kubernetes.docker.internal
       paths:
         - path: /
   tls: []
